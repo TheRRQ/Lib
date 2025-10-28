@@ -16,7 +16,7 @@ class BookUpdate(BaseModel):
     title : Optional[str] = None
     author : Optional[str] = None
     is_borrowed : Optional[bool] = None
-    borrowed_by : Optional[int] = None
+    borrowed_by : Optional[int] = Field(None , ge=100000, le=999999, description="6 digit User ID")
     borrowed_at : Optional[datetime] = None
 
 
@@ -25,7 +25,7 @@ class Book(BookBase):
     id : int
 
     is_borrowed : bool
-    borrowed_by : Optional[int] = None
+    borrowed_by : Optional[int] = Field(None , ge=100000, le=999999, description="6 digit User ID")
     borrowed_at : Optional[datetime] = None
 
 
