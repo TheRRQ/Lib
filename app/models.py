@@ -16,3 +16,8 @@ class Book(Base):
     borrowed_by = Column(Integer, nullable= True)
     borrowed_at = Column(DateTime, nullable= True)
 
+
+    # for updates
+    def update_from_schema(self, data):
+        for key, val in data:
+            setattr(self, key, val)
