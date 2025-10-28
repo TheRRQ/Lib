@@ -3,11 +3,17 @@ from sqlalchemy import text
 
 from app.database import engine
 
+from app.routes import router
+from app.models import Base
 
 
 
+app = FastAPI(title="Library app")
 
-app = FastAPI(title="Lib app")
+Base.metadata.create_all(bind = engine)
+
+app.include_router(router)
+
 
 
 @app.get("/")
