@@ -18,6 +18,6 @@ class Book(Base):
 
 
     # for updates
-    def update_from_schema(self, data):
-        for key, val in data:
+    def update_from_schema(self, data : dict):
+        for key, val in data.items():
             setattr(self, key, val)
