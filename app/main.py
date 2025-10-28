@@ -1,7 +1,7 @@
 from fastapi import FastAPI
+from sqlalchemy import text
 
-
-from database import engine
+from app.database import engine
 
 
 
@@ -20,11 +20,9 @@ def db_check():
 
     try : 
         with engine.connect() as conn:
-            conn.execute("SELECT 1")
+            conn.execute(text("SELECT 1"))
 
         return {"msg" : "conn ok"}
-
-
 
     except Exception as exc :
 
