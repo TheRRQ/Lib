@@ -1,5 +1,8 @@
 name: Run tests
 
+
+
+
 on: [push, pull_request]
 
 jobs:
@@ -22,4 +25,7 @@ jobs:
           pip install httpx
 
       - name: Run tests
+        env:
+          PYTHONPATH: ./
+        
         run: pytest -v
